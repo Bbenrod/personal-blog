@@ -1,0 +1,26 @@
+{
+  "name": "blogitmd",
+  "version": "1.0.0",
+  "description": "Plataforma ligera para publicar artículos en Markdown desde un formulario web. Al subir un .md, se genera automáticamente una ruta accesible desde /blog. Ideal para blogs personales o despliegues rápidos de contenido escrito.",
+  "main": "src/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bbenrod/BlogItMD.git"
+  },
+  "author": "Bbenrod",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bbenrod/BlogItMD/issues"
+  },
+  "homepage": "https://github.com/Bbenrod/BlogItMD#readme",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "dotenv": "^17.0.0",
+    "ejs": "^3.1.10",
+    "express": "^5.1.0",
+    "marked": "^16.0.0"
+  }
+}
