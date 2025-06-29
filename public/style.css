@@ -1,0 +1,103 @@
+/* Reset simple */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  line-height: 1.6;
+  padding: 20px;
+  max-width: 800px;
+  margin: auto;
+}
+
+header {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+header h1 a {
+  text-decoration: none;
+  color: #2c3e50;
+}
+
+nav a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: #3498db;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+main {
+  margin-top: 20px;
+}
+
+article h1 {
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 0.9em;
+  color: #666;
+}
+
+/* Lista de artículos */
+ul.article-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+ul.article-list li {
+  margin-bottom: 10px;
+}
+
+ul.article-list a {
+  color: #2c3e50;
+  text-decoration: none;
+}
+
+ul.article-list a:hover {
+  color: #2980b9;
+}
+
+/* Formulario de upload */
+form textarea, form input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  font-size: 1em;
+}
+
+form button {
+  padding: 10px 20px;
+  background-color: #3498db;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #2980b9;
+}
+
+/* Markdown generado */
+img {
+  max-width: 100%;
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  overflow-x: auto;
+}
