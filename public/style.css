@@ -16,7 +16,6 @@ body {
 }
 
 header {
-  margin-bottom: 20px;
   text-align: center;
 }
 
@@ -37,6 +36,7 @@ nav a:hover {
 
 main {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 article h1 {
@@ -100,4 +100,54 @@ pre {
   background-color: #eee;
   padding: 10px;
   overflow-x: auto;
+}
+
+.markdown {
+  line-height: 1.8;
+  color: #333;
+  font-size: 1rem;
+}
+
+.markdown h1,
+.markdown h2,
+.markdown h3 {
+  margin-top: 1.2em;
+  margin-bottom: 0.5em;
+}
+
+.markdown p {
+  margin-bottom: 1em;
+}
+
+.markdown ul,
+.markdown ol {
+  margin-left: 1.5em;
+  margin-bottom: 1em;
+  list-style: disc inside;
+}
+
+.markdown li {
+  margin-bottom: 0.5em;
+}
+
+.markdown blockquote {
+  border-left: 4px solid #ccc;
+  padding-left: 1em;
+  color: #666;
+  margin: 1em 0;
+}
+
+.markdown code {
+  background-color: #eee;
+  padding: 2px 4px;
+  font-family: monospace;
+  border-radius: 3px;
+}
+
+.markdown pre code {
+  display: block;
+  padding: 10px;
+  overflow-x: auto;
+  background-color: #eee;
+  border-radius: 4px;
 }
