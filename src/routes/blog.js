@@ -2,6 +2,7 @@ const express = require("express");
 const fs = require("fs/promises");
 const path = require("path");
 const { marked } = require("marked");
+const clearMarkdown = require("../utils/clearMarkdown");
 
 const blogRouter = express.Router();
 
@@ -19,10 +20,11 @@ blogRouter.get("/:postName", async (req, res) => {
     ]);
 
     const metadata = JSON.parse(jsonData);
-    const htmlContent = marked(mdData);
+    const htmlContentDirty = marked(mdData);
+    const htmlContentClear = clearMarkdown(htmlContentDirty);
 
     res.render("post", {
-      content: htmlContent,
+      content: htmlContentClear,
       title: metadata.title || postName,
       ...metadata,
     });
