@@ -2,4 +2,7 @@
 
 <main class="markdown"><%- content %></main>
 
-<%- include('partials/footer') %>
+<% if (extraContent) { %>
+<hr />
+<div class="extra"><%- extraContent %></div>
+<% } %> <%- include('partials/footer') %>

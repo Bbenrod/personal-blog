@@ -35,8 +35,7 @@ nav a:hover {
 }
 
 main {
-  margin-top: 20px;
-  margin-bottom: 20px;
+  margin: 20px 0;
 }
 
 article h1 {
@@ -70,38 +69,139 @@ ul.article-list a:hover {
   color: #2980b9;
 }
 
-/* Formulario de upload */
-form textarea, form input[type="text"] {
+/* Formularios */
+form {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  max-width: 700px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  font-weight: bold;
+  margin: 15px 0 5px;
+}
+
+form input[type="text"],
+form input[type="url"],
+form textarea {
   width: 100%;
   padding: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
-  font-size: 1em;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  box-sizing: border-box;
 }
 
-form button {
+form textarea {
+  resize: vertical;
+}
+
+form button,
+button[type="submit"] {
   padding: 10px 20px;
-  background-color: #3498db;
   border: none;
-  color: white;
+  border-radius: 6px;
   cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
 }
 
-form button:hover {
+/* Botones primarios (publicar) */
+form button:not(.preview-btn),
+button[type="submit"]:not(.preview-btn) {
+  background-color: #3498db;
+  color: white;
+  margin-right: 10px;
+}
+
+form button:not(.preview-btn):hover,
+button[type="submit"]:not(.preview-btn):hover {
   background-color: #2980b9;
 }
 
+/* Botones secundarios (vista previa) */
+button.preview-btn,
+form button.preview-btn {
+  background-color: #ecf0f1;
+  border: 1px solid #bdc3c7;
+  color: #2c3e50;
+  border-radius: 6px;
+  font-weight: bold;
+}
+
+button.preview-btn:hover,
+form button.preview-btn:hover {
+  background-color: #dfe6e9;
+}
+
+/* Botones en contenedor .buttons */
+.buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.buttons button[type="submit"] {
+  flex: 1;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.buttons button[type="submit"]:not(.preview-btn) {
+  background-color: #3498db;
+  color: white;
+}
+
+.buttons button[type="submit"]:not(.preview-btn):hover {
+  background-color: #2980b9;
+}
+
+.buttons button.preview-btn {
+  background-color: #ecf0f1;
+  border: 2px solid #bdc3c7;
+  color: #2c3e50;
+  border-radius: 5px;
+}
+
+.buttons button.preview-btn:hover {
+  background-color: #dfe6e9;
+}
+
+a.preview-btn {
+  display: inline-block;       /* Para que tenga dimensiones como botón */
+  padding: 10px 20px;
+  background-color: #ecf0f1;
+  border: 2px solid #bdc3c7;
+  color: #2c3e50;
+  border-radius: 6px;
+  font-weight: bold;
+  text-decoration: none;       /* Quitar subrayado */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-align: center;          /* Centrar texto si es inline-block */
+  user-select: none;           /* Opcional: evitar selección de texto al hacer clic rápido */
+}
+
+a.preview-btn:hover {
+  background-color: #dfe6e9;
+}
+
+.extra{
+  margin: 20px 0;
+}
+
 /* Markdown generado */
-img {
-  max-width: 100%;
-}
-
-pre {
-  background-color: #eee;
-  padding: 10px;
-  overflow-x: auto;
-}
-
 .markdown {
   line-height: 1.8;
   color: #333;
@@ -111,18 +211,18 @@ pre {
 .markdown h1,
 .markdown h2,
 .markdown h3 {
-  margin-top: 1.2em;
-  margin-bottom: 0.5em;
+  margin: 1.2em 0 0.5em;
 }
 
-.markdown p {
+.markdown p,
+.markdown ul,
+.markdown ol {
   margin-bottom: 1em;
 }
 
 .markdown ul,
 .markdown ol {
   margin-left: 1.5em;
-  margin-bottom: 1em;
   list-style: disc inside;
 }
 
@@ -144,14 +244,26 @@ pre {
   border-radius: 3px;
 }
 
-.markdown pre code {
-  display: block;
+.markdown pre {
+  background-color: #eee;
   padding: 10px;
   overflow-x: auto;
-  background-color: #eee;
   border-radius: 4px;
 }
 
+.markdown pre code {
+  display: block;
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}
+
+/* Imágenes */
+img {
+  max-width: 100%;
+}
+
+/* Grid y Cards */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));

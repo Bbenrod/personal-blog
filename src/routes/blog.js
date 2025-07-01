@@ -26,6 +26,7 @@ blogRouter.get("/:postName", async (req, res) => {
     res.render("post", {
       content: htmlContentClear,
       title: metadata.title || postName,
+      extraContent: "",
       ...metadata,
     });
   } catch (err) {

@@ -1,0 +1,71 @@
+<%- include('partials/header', { title: 'Subir nuevo post', slug: '/blog' }) %>
+
+<form action="<%= slug %>/upload" method="POST">
+  <label for="title">Título:</label>
+  <input
+    type="text"
+    name="title"
+    id="title"
+    value="<%= formData?.title || '' %>"
+    required
+  />
+
+  <label for="slug">Slug (URL sin espacios):</label>
+  <input
+    type="text"
+    name="slug"
+    id="slug"
+    value="<%= formData?.slug || '' %>"
+    required
+  />
+
+  <label for="author">Autor:</label>
+  <input
+    type="text"
+    name="author"
+    id="author"
+    value="<%= formData?.author || '' %>"
+    required
+  />
+
+  <label for="tags">Tags (separados por coma):</label>
+  <input
+    type="text"
+    name="tags"
+    id="tags"
+    value="<%= formData?.tags?.join(', ') || '' %>"
+    placeholder="ej: blog, js, node"
+  />
+
+  <label for="description">Descripción:</label>
+  <textarea name="description" id="description" rows="3">
+<%= formData?.description || '' %></textarea
+  >
+
+  <label for="thumbnail">Link de imagen (thumbnail):</label>
+  <input
+    type="url"
+    name="thumbnail"
+    id="thumbnail"
+    value="<%= formData?.thumbnail || '' %>"
+    placeholder="https://..."
+  />
+
+  <label for="markdown">Contenido (.md):</label>
+  <textarea name="markdown" id="markdown" rows="10" required>
+<%= formData?.markdown || '' %></textarea
+  >
+
+  <div class="buttons">
+    <button type="submit">Publicar</button>
+    <button
+      type="submit"
+      class="preview-btn"
+      formaction="<%= slug %>/upload/preview"
+    >
+      Vista previa
+    </button>
+  </div>
+</form>
+
+<%- include('partials/footer') %>

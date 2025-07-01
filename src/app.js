@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const path = require("path");
 const express = require("express");
+const session = require("express-session");
 const router = require("./routes");
 
 const app = express();
@@ -13,6 +14,21 @@ const BLOG_ROUTE = process.env.BLOG_ROUTE || "/blog";
 app.set("view engine", "ejs");
 app.set("views", path.join(rootDir, "src", "views"));
 app.use(express.static(path.join(rootDir, "public")));
+app.use(express.urlencoded({ extended: true }));
+
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET || "dev-secret",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+
+/*
+  ⚠️ Este proyecto usa MemoryStore por simplicidad.
+  ❗ Si vas a usarlo en producción, cambia el store por Redis, Mongo u otro.
+  Ejemplo con Redis: https://github.com/tj/connect-redis
+*/
 
 app.use(BLOG_ROUTE, router);
 
