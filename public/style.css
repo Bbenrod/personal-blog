@@ -151,3 +151,33 @@ pre {
   background-color: #eee;
   border-radius: 4px;
 }
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.card h2 {
+  margin-bottom: 0.5em;
+}
+
+.tags {
+  margin-top: 10px;
+}
+
+.tag {
+  background: #3498db;
+  color: white;
+  padding: 4px 8px;
+  margin-right: 5px;
+  border-radius: 4px;
+  font-size: 0.8em;
+}

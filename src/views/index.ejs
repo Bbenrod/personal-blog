@@ -1,8 +1,21 @@
-<%- include('partials/header', { title: 'Título de la página', route: '/blog' })
+<%- include('partials/header', { title: 'Título de la página', slug: '/blog' })
 %>
 
 <main>
-  <p>Contenido</p>
+  <h1>Blog</h1>
+  <div class="grid">
+    <% posts.forEach(post => { %>
+    <div class="card">
+      <h2><a href="/blog/<%= post.slug %>"><%= post.title %></a></h2>
+      <p><%= post.description %></p>
+      <div class="tags">
+        <% post.tags.forEach(tag => { %>
+        <span class="tag"><%= tag %></span>
+        <% }) %>
+      </div>
+    </div>
+    <% }) %>
+  </div>
 </main>
 
 <%- include('partials/footer') %>
