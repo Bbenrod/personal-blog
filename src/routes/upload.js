@@ -2,14 +2,22 @@ require("dotenv").config();
 const express = require("express");
 const fs = require("fs/promises");
 const path = require("path");
-const { marked } = require("marked");
 const clearMarkdown = require("../utils/clearMarkdown");
 const uploadRouter = express.Router();
 
 const BLOG_ROUTE = process.env.BLOG_ROUTE || "/blog";
 
 uploadRouter.get("/", (req, res) => {
-  const formData = req.session.formData || {};
+  const formData = req.session.formData || {
+    title: "About me",
+    slug: "about-me",
+    date: "2025-07-02T03:08:41.190Z",
+    author: "test",
+    tags: ["Edit me"],
+    description: "Void page",
+    thumbnail: "",
+    published: true,
+  };
   res.render("upload", { blogRoute: BLOG_ROUTE, formData });
 });
 
@@ -46,8 +54,7 @@ uploadRouter.post("/preview", (req, res) => {
     ...metadata,
   };
 
-  const htmlContentDirty = marked(markdown);
-  const htmlContentClear = clearMarkdown(htmlContentDirty);
+  const htmlContentClear = clearMarkdown(markdown);
 
   const extraContent = `
     <div class="buttons">

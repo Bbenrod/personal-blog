@@ -2,7 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const fs = require("fs/promises");
 const path = require("path");
-const { marked } = require("marked");
 const clearMarkdown = require("../utils/clearMarkdown");
 
 const blogRouter = express.Router();
@@ -22,8 +21,7 @@ blogRouter.get("/:postName", async (req, res) => {
     ]);
 
     const metadata = JSON.parse(jsonData);
-    const htmlContentDirty = marked(mdData);
-    const htmlContentClear = clearMarkdown(htmlContentDirty);
+    const htmlContentClear = clearMarkdown(mdData);
 
     res.render("post", {
       content: htmlContentClear,

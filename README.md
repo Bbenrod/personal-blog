@@ -102,6 +102,7 @@ This project is licensed under the MIT License. See the [LICENSE](./LICENSE) fil
 ### ✨ Core Features
 
 - [ ] Support for images and GIFs in posts.
+- [ ] Support for hooks.
 - [ ] Session management with authentication so only users with credentials can upload blogs.
 - [ ] Support for comments on posts.
 - [ ] Create a search feature for posts.
