@@ -26,6 +26,6 @@
     "express": "^5.1.0",
     "express-session": "^1.18.1",
     "jsdom": "^26.1.0",
-    "marked": "^16.0.0"
+    "marked": "^4.0.12"
   }
 }

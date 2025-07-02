@@ -8,16 +8,7 @@ const uploadRouter = express.Router();
 const BLOG_ROUTE = process.env.BLOG_ROUTE || "/blog";
 
 uploadRouter.get("/", (req, res) => {
-  const formData = req.session.formData || {
-    title: "About me",
-    slug: "about-me",
-    date: "2025-07-02T03:08:41.190Z",
-    author: "test",
-    tags: ["Edit me"],
-    description: "Void page",
-    thumbnail: "",
-    published: true,
-  };
+  const formData = req.session.formData || {};
   res.render("upload", { blogRoute: BLOG_ROUTE, formData });
 });
 
