@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const fs = require("fs/promises");
 const path = require("path");
@@ -5,6 +6,7 @@ const { marked } = require("marked");
 const clearMarkdown = require("../utils/clearMarkdown");
 
 const blogRouter = express.Router();
+const BLOG_ROUTE = process.env.BLOG_ROUTE || "/blog";
 
 blogRouter.get("/:postName", async (req, res) => {
   const postName = req.params.postName;
@@ -27,6 +29,7 @@ blogRouter.get("/:postName", async (req, res) => {
       content: htmlContentClear,
       title: metadata.title || postName,
       extraContent: "",
+      blogRoute: BLOG_ROUTE,
       ...metadata,
     });
   } catch (err) {

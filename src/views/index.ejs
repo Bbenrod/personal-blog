@@ -1,12 +1,15 @@
-<%- include('partials/header', { title: 'Título de la página', slug: '/blog' })
-%>
+<%- include('partials/header', { blogRoute: blogRoute || "" }) %>
 
 <main>
-  <h1>Blog</h1>
+  <h1>Contenido</h1>
   <div class="grid">
     <% posts.forEach(post => { %>
     <div class="card">
-      <h2><a href="/blog/<%= post.slug %>"><%= post.title %></a></h2>
+      <h2>
+        <a href="<%= blogRoute || '/blog' %>/<%= post.slug %>"
+          ><%= post.title %></a
+        >
+      </h2>
       <p><%= post.description %></p>
       <div class="tags">
         <% post.tags.forEach(tag => { %>

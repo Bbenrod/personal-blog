@@ -10,7 +10,7 @@ const BLOG_ROUTE = process.env.BLOG_ROUTE || "/blog";
 
 uploadRouter.get("/", (req, res) => {
   const formData = req.session.formData || {};
-  res.render("upload", { slug: BLOG_ROUTE, formData });
+  res.render("upload", { blogRoute: BLOG_ROUTE, formData });
 });
 
 uploadRouter.post("/", async (req, res) => {
@@ -62,6 +62,7 @@ uploadRouter.post("/preview", (req, res) => {
   res.render("post", {
     content: htmlContentClear,
     title: metadata.title,
+    blogRoute: BLOG_ROUTE,
     extraContent,
     ...metadata,
   });
@@ -74,7 +75,7 @@ const getFormData = (data) => {
 
   const metadata = {
     title: data.title,
-    slug: data.slug,
+    slug: data.slug.replace(/ +/g, "-"),
     date: new Date(),
     author: data.author,
     tags: tagsArray,

@@ -15,15 +15,6 @@ body {
   margin: auto;
 }
 
-header {
-  text-align: center;
-}
-
-header h1 a {
-  text-decoration: none;
-  color: #2c3e50;
-}
-
 nav a {
   margin: 0 10px;
   text-decoration: none;
@@ -41,13 +32,6 @@ main {
 article h1 {
   font-size: 2em;
   margin-bottom: 10px;
-}
-
-footer {
-  text-align: center;
-  margin-top: 40px;
-  font-size: 0.9em;
-  color: #666;
 }
 
 /* Lista de artículos */

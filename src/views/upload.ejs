@@ -1,6 +1,6 @@
-<%- include('partials/header', { title: 'Subir nuevo post', slug: '/blog' }) %>
+<%- include('partials/header', { blogRoute: blogRoute || "" }) %>
 
-<form action="<%= slug %>/upload" method="POST">
+<form action="<%= blogRoute || '/blog' %>/upload" method="POST">
   <label for="title">Título:</label>
   <input
     type="text"
@@ -61,7 +61,7 @@
     <button
       type="submit"
       class="preview-btn"
-      formaction="<%= slug %>/upload/preview"
+      formaction="<%= blogRoute || '/blog' %>/upload/preview"
     >
       Vista previa
     </button>

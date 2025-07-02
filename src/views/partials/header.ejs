@@ -2,17 +2,19 @@
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <title><%= title %></title>
+    <title>BlogItMD</title>
+    <link rel="stylesheet" href="/header.css" />
+    <link rel="stylesheet" href="/footer.css" />
     <link rel="stylesheet" href="/style.css" />
   </head>
   <body>
-    <header>
-      <h1><a href="/blog">Mi Blog</a></h1>
+    <header class="site-header">
+      <h1><a href="<%= blogRoute || '/blog' %>">BlogItMD</a></h1>
       <nav>
-        <a href="/blog">Inicio</a> |
-        <a href="<%= slug %>/upload">Subir artículo</a>
+        <a href="<%= blogRoute || '/blog' %>/about-me">About Me</a>
       </nav>
     </header>
+
     <hr />
   </body>
 </html>
