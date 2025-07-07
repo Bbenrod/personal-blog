@@ -4,6 +4,12 @@ BlogItMD is a minimalist CMS to easily publish blogs. The idea is that anyone ca
 
 ---
 
+## 📌 Current Version
+
+The current stable version of BlogItMD is **v0.1.0**. See the [ROADMAP.md](./ROADMAP.md) for upcoming features and improvements.
+
+---
+
 ## 🚀 Technologies Used
 
 - Node.js
@@ -99,14 +105,16 @@ This project is licensed under the MIT License. See the [LICENSE](./LICENSE) fil
 
 ## 🛤️ Roadmap
 
+This is a brief summary of planned features and improvements. For the complete and detailed roadmap, please refer to the [ROADMAP.md](./ROADMAP.md) file.
+
 ### ✨ Core Features
 
-- [ ] Support for images and GIFs in posts.
-- [ ] Support for hooks.
-- [ ] Session management with authentication so only users with credentials can upload blogs.
+- [x] Support for images and GIFs in posts.
+- [ ] Support for commands within posts.
+- [ ] Session management with authentication so only authorized users can upload blogs.
 - [ ] Support for comments on posts.
-- [ ] Create a search feature for posts.
-- [ ] Use thumbnails for posts (currently not used).
+- [ ] Implement a search feature for posts.
+- [ ] Use thumbnails for posts (currently not implemented).
 
 ### 🗄️ Backend & Storage
 
@@ -115,7 +123,7 @@ This project is licensed under the MIT License. See the [LICENSE](./LICENSE) fil
 
 ### 🎨 UI / UX
 
-- [ ] Visual and design improvements through community contributions.
+- [ ] Visual and design improvements via community contributions.
 
 ### 📚 Documentation
 
