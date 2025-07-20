@@ -1,7 +1,9 @@
 const fs = require("fs/promises");
 const path = require("path");
 
-function createLocalSource(postsDir) {
+function createLocalSource(baseDir) {
+  const postsDir = path.join(baseDir, "posts");
+
   function getPostFilePath(slug, ext) {
     return path.join(postsDir, `${slug}.${ext}`);
   }

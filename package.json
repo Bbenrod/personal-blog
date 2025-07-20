@@ -5,7 +5,7 @@
   "main": "src/app.js",
   "scripts": {
     "start": "node src/app.js",
-    "dev": "nodemon src/app.js",
+    "dev": "nodemon --watch src src/app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -27,6 +27,7 @@
     "express": "^5.1.0",
     "express-session": "^1.18.1",
     "jsdom": "^26.1.0",
-    "marked": "^4.0.12"
+    "marked": "^4.0.12",
+    "simple-git": "^3.28.0"
   }
 }

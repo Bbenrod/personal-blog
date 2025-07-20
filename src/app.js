@@ -5,6 +5,7 @@ const express = require("express");
 const session = require("express-session");
 const router = require("./routes");
 const apiRoutes = require("./api");
+const initPostSource = require("./posts/init");
 
 const app = express();
 const rootDir = path.resolve(__dirname, "..");
@@ -32,9 +33,16 @@ app.use(
   Ejemplo con Redis: https://github.com/tj/connect-redis
 */
 
-app.use(`${BLOG_ROUTE}/api/`, apiRoutes);
-app.use(BLOG_ROUTE, router);
+initPostSource()
+  .then(() => {
+    app.use(`${BLOG_ROUTE}/api/`, apiRoutes);
+    app.use(BLOG_ROUTE, router);
 
-app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}`);
-});
+    app.listen(PORT, () => {
+      console.log(`Example app listening on port ${PORT}`);
+    });
+  })
+  .catch((err) => {
+    console.error("Failed to initialize posts source:", err);
+    process.exit(1);
+  });
