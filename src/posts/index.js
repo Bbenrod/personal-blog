@@ -1,5 +1,6 @@
+const path = require("path");
 const config = require("./config");
-const sourceLocal = require("./sourceLocal");
+const createLocalSource = require("./sourceLocal");
 
 const POST_SOURCE = config.source;
 
@@ -7,7 +8,8 @@ let source;
 
 switch (POST_SOURCE) {
   case "local":
-    source = sourceLocal;
+    const postsDir = path.join(__dirname, "..", "..", "posts");
+    source = createLocalSource(postsDir);
     break;
   default:
     throw new Error(`Unknown POST_SOURCE: ${POST_SOURCE}`);
