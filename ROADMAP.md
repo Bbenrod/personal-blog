@@ -32,7 +32,7 @@ BlogItMD is a minimalist blogging platform inspired by [Substack](https://substa
 - [ ] Validation: prevent overwriting existing posts.
 - [ ] Middleware to protect upload routes with minimal authentication.
 - [ ] Define `/search` route (search by content or title).
-- [ ] Optional sync with external repository to store posts for client.
+- [x] Optional sync with external repository to store posts for client.
 
 ### Frontend
 
