@@ -3,6 +3,12 @@ const path = require("path");
 
 async function loadPosts() {
   const postsDir = path.join(__dirname, "..", "..", "posts");
+
+  const getJsonFiles = async (dirPath) => {
+    const files = await fs.readdir(dirPath);
+    return files.filter((file) => file.endsWith(".json"));
+  };
+
   const jsonFiles = await getJsonFiles(postsDir);
 
   const posts = await Promise.all(
@@ -14,11 +20,6 @@ async function loadPosts() {
   );
 
   return posts.filter(({ published }) => published);
-}
-
-async function getJsonFiles(dirPath) {
-  const files = await fs.readdir(dirPath);
-  return files.filter((file) => file.endsWith(".json"));
 }
 
 module.exports = loadPosts;
