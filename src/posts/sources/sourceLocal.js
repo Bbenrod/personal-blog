@@ -9,18 +9,26 @@ function createLocalSource(baseDir) {
   }
 
   async function readPosts() {
-    const files = await fs.readdir(postsDir);
-    const jsonFiles = files.filter((file) => file.endsWith(".json"));
+    try {
+      const files = await fs.readdir(postsDir);
+      const jsonFiles = files.filter((file) => file.endsWith(".json"));
 
-    const posts = await Promise.all(
-      jsonFiles.map(async (file) => {
-        const filePath = path.join(postsDir, file);
-        const content = await fs.readFile(filePath, "utf-8");
-        return JSON.parse(content);
-      })
-    );
+      const posts = await Promise.all(
+        jsonFiles.map(async (file) => {
+          const filePath = path.join(postsDir, file);
+          const content = await fs.readFile(filePath, "utf-8");
+          return JSON.parse(content);
+        })
+      );
 
-    return posts.filter(({ published }) => published);
+      return posts.filter(({ published }) => published);
+    } catch (error) {
+      if (error.code === "ENOENT") {
+        console.warn(`📁 Directory not found: ${postsDir}`);
+        return [];
+      }
+      throw error;
+    }
   }
 
   async function writePost(content) {
