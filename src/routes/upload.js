@@ -1,8 +1,8 @@
 require("dotenv").config();
 const express = require("express");
-const fs = require("fs/promises");
-const path = require("path");
 const clearMarkdown = require("../utils/clearMarkdown");
+const axiosInstance = require("../utils/axiosInstance");
+
 const uploadRouter = express.Router();
 
 const BLOG_ROUTE = process.env.BLOG_ROUTE || "/blog";
@@ -15,25 +15,13 @@ uploadRouter.get("/", (req, res) => {
 uploadRouter.post("/", async (req, res) => {
   try {
     const { markdown, metadata } = getFormData(req.body);
-    const postsDir = path.join(__dirname, "..", "..", "posts");
+    const response = await axiosInstance.post("/posts", { markdown, metadata });
+    const redirectUrl = response.data.redirectUrl;
 
-    if (!metadata.slug) {
-      return res.status(400).send("Falta el slug en metadata");
-    }
-
-    await fs.mkdir(postsDir, { recursive: true });
-
-    const jsonPath = path.join(postsDir, `${metadata.slug}.json`);
-    const mdPath = path.join(postsDir, `${metadata.slug}.md`);
-
-    await fs.writeFile(jsonPath, JSON.stringify(metadata, null, 2), "utf-8");
-
-    await fs.writeFile(mdPath, markdown, "utf-8");
-
-    res.status(303).redirect(`${BLOG_ROUTE}/${metadata.slug}`);
+    res.redirect(redirectUrl);
   } catch (error) {
-    console.error(error);
-    res.status(500).send("Error guardando archivos");
+    console.error("Error creating post:", error);
+    res.status(500).send("Error creating post");
   }
 });
 
